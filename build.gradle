@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'org.mybatis:mybatis:3.5.3'
+    implementation 'com.typesafe.akka:akka-stream_2.12:2.6.1'
+    implementation 'dev.jyuch:alpakka-mybatis_2.12:0.1.0'
+    implementation 'com.h2database:h2:1.4.200'
+}
+
+application {
+    mainClassName = 'dev.jyuch.alpakka.mybatis.sample.App'
+}

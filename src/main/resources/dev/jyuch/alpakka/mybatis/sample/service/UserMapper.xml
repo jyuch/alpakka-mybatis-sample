@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.jyuch.alpakka.mybatis.sample.service.UserMapper">
+  <update id="initialize">
+    create table user (id int, name varchar);
+    insert into user (id, name) values (1, 'alice');
+    insert into user (id, name) values (2, 'bob');
+  </update>
+  <select id="select" resultType="dev.jyuch.alpakka.mybatis.sample.model.User">
+    select * from user order by id
+  </select>
+  <select id="selectById" parameterType="int" resultType="dev.jyuch.alpakka.mybatis.sample.model.User">
+    select * from user where id = #{id}
+  </select>
+  <insert id="insert" parameterType="dev.jyuch.alpakka.mybatis.sample.model.User">
+    insert into user (id, name) values (#{id}, #{name})
+  </insert>
+</mapper>
